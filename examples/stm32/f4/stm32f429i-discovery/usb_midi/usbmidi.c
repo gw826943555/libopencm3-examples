@@ -381,7 +381,7 @@ int main(void)
 	/* Button pin */
 	gpio_mode_setup(GPIOA, GPIO_MODE_INPUT, GPIO_PUPD_NONE, GPIO0);
 
-	usbd_dev = usbd_init(&otghs_usb_driver, &dev, &config,
+	usbd_dev = usbd_init(&otghs_usb_driver, &dev, &config, NULL,
 			usb_strings, 3,
 			usbd_control_buffer, sizeof(usbd_control_buffer));
 

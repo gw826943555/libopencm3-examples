@@ -250,7 +250,7 @@ int main(void)
 	rcc_clock_setup_pll(&rcc_hse8mhz_configs[RCC_CLOCK_HSE8_72MHZ]);
 	usb_setup();
 
-	usbd_dev = usbd_init(&st_usbfs_v1_usb_driver, &dev, &config, usb_strings,
+	usbd_dev = usbd_init(&st_usbfs_v1_usb_driver, &dev, &config, NULL, usb_strings,
 			3, usbd_control_buffer, sizeof(usbd_control_buffer));
 	usbd_register_set_config_callback(usbd_dev, cdcacm_set_config);
 

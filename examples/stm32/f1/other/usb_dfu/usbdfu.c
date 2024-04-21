@@ -270,7 +270,7 @@ int main(void)
 
 	rcc_periph_clock_enable(RCC_OTGFS);
 
-	usbd_dev = usbd_init(&stm32f107_usb_driver, &dev, &config, usb_strings, 4, usbd_control_buffer, sizeof(usbd_control_buffer));
+	usbd_dev = usbd_init(&stm32f107_usb_driver, &dev, &config, NULL, usb_strings, 4, usbd_control_buffer, sizeof(usbd_control_buffer));
 	usbd_register_set_config_callback(usbd_dev, usbdfu_set_config);
 
 	gpio_set(GPIOA, GPIO15);

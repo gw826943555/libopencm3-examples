@@ -288,7 +288,7 @@ void cdcacm_init(void)
 
 	usb_pins_setup();
 
-	usbd_dev = usbd_init(&lm4f_usb_driver, &dev, &config, usb_strings, 4,
+	usbd_dev = usbd_init(&lm4f_usb_driver, &dev, &config, NULL, usb_strings, 4,
 			     usbd_control_buffer, sizeof(usbd_control_buffer));
 	acm_dev = usbd_dev;
 	usbd_register_set_config_callback(usbd_dev, cdcacm_set_config);

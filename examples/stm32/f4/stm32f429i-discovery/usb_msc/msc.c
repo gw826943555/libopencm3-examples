@@ -113,7 +113,7 @@ int main(void)
 	gpio_mode_setup(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO14 | GPIO15);
 	gpio_set_af(GPIOB, GPIO_AF12, GPIO14 | GPIO15);
 
-	msc_dev = usbd_init(&otghs_usb_driver, &dev_descr, &config_descr,
+	msc_dev = usbd_init(&otghs_usb_driver, &dev_descr, &config_descr, NULL,
 			    usb_strings, 3,
 			    usbd_control_buffer, sizeof(usbd_control_buffer));
 

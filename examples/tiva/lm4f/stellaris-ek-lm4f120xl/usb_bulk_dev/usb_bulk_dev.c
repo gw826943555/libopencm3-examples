@@ -334,7 +334,7 @@ int main(void)
 	usb_setup();
 	/* Let the stack take care of the rest */
 	bulk_dev = usbd_init(&lm4f_usb_driver, &dev_descr, &config_descr,
-			     usb_strings, 4,
+			     NULL, usb_strings, 4,
 			     usbd_control_buffer, sizeof(usbd_control_buffer));
 	usbd_register_set_config_callback(bulk_dev, set_config);
 	/* Enable the interrupts. */
