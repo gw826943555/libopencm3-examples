@@ -19,7 +19,7 @@
 
 BINARY = miniblink
 
-LDSCRIPT = ../artpi.ld
+LDSCRIPT = ../stm32h750xb-artpi.ld.ld
 
 include ../../Makefile.include
 

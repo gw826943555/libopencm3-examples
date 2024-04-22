@@ -19,7 +19,7 @@
 
 BINARY = fancyblink
 
-LDSCRIPT = ../artpi.ld
+LDSCRIPT = ../stm32h750xb-artpi.ld
 
 include ../../Makefile.include
 
