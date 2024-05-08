@@ -44,8 +44,8 @@ void sys_tick_handler(void)
 	}
 }
 
-struct rcc_pll_config pll_config = {
-	.sysclock_source = RCC_PLL,
+static struct rcc_pll_config pll_config = {
+	.sysclock_source = RCC_PLL1,
 	.pll_source = RCC_PLLCKSELR_PLLSRC_HSE,
 	.hse_frequency = 25000000,
 	.pll1 = {5, 192, 2, 2, 2},			/*p:480M, q:480M, r:480M*/
