@@ -34,7 +34,8 @@ static void gpio_setup(void)
 
 void sys_tick_handler(void)
 {
-	static uint32_t temp32 = 0;
+	static uint32_t temp32;
+
 	temp32++;
 
 	/* We call this handler every 1ms so 1000ms = 1s on/off. */
@@ -50,11 +51,11 @@ static struct rcc_pll_config pll_config = {
 	.hse_frequency = 25000000,
 	.pll1 = {5, 192, 2, 2, 2},			/*p:480M, q:480M, r:480M*/
 	.pll2 = {2,  64, 2, 2, 4},			/*p:400M, q:400M, r:200M*/
-	.pll3 = {5, 160, 8, 8, 24}, 		/*p:100M, q:100M, r:33.3M*/
-	.core_pre = RCC_D1CFGR_D1CPRE_BYP, 	/*480Mhz max*/
-	.hpre = RCC_D1CFGR_D1HPRE_DIV2, 	/*240Mhz max*/
-	.ppre1 = RCC_D2CFGR_D2PPRE_DIV2, 	/*120Mhz max*/
-	.ppre2 = RCC_D2CFGR_D2PPRE_DIV2, 	/*120Mhz max*/
+	.pll3 = {5, 160, 8, 8, 24},			/*p:100M, q:100M, r:33.3M*/
+	.core_pre = RCC_D1CFGR_D1CPRE_BYP,	/*480Mhz max*/
+	.hpre = RCC_D1CFGR_D1HPRE_DIV2,		/*240Mhz max*/
+	.ppre1 = RCC_D2CFGR_D2PPRE_DIV2,	/*120Mhz max*/
+	.ppre2 = RCC_D2CFGR_D2PPRE_DIV2,	/*120Mhz max*/
 	.ppre3 = RCC_D1CFGR_D1PPRE_DIV2,	/*120Mhz max*/
 	.ppre4 = RCC_D3CFGR_D3PPRE_DIV2,	/*120Mhz max*/
 	.flash_waitstates = FLASH_ACR_LATENCY_4WS,
@@ -80,5 +81,7 @@ int main(void)
 	/* Start counting. */
 	systick_counter_enable();
 
-	while (1){ };
+	while (1) {
+		__asm("nop");
+	}
 }
