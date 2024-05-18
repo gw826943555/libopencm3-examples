@@ -264,8 +264,6 @@ int main(void)
             usb_strings, 3,
             usbd_control_buffer, sizeof(usbd_control_buffer));
 
-    usbd_disconnect(usbd_dev, false);
-
     usbd_register_set_config_callback(usbd_dev, cdcacm_set_config);
 
     while (1) {
