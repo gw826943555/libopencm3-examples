@@ -254,7 +254,7 @@ int main(void)
     rcc_set_peripheral_clk_sel(USB2_OTG_FS_BASE, RCC_D2CCIP2R_USBSEL_HSI48);
 
     rcc_periph_clock_enable(RCC_GPIOA);
-    rcc_periph_clock_enable(RCC_USB2OTGHSEN);
+    rcc_periph_clock_enable(RCC_USB2OTGHS);
 
     gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
     gpio_set_af(GPIOA, GPIO_AF10, GPIO11);
